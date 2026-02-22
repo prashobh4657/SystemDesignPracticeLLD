@@ -23,12 +23,8 @@ public class VotingSystemDemo {
             throw new IllegalArgumentException("candidateCount must be > 0");
         }
 
-        Set<String> candidateIds = new HashSet<>();
         for (int i = 0; i < candidateCount; i++) {
             String candidateId = "C" + (i + 1);
-            if (!candidateIds.add(candidateId)) {
-                throw new IllegalStateException("Duplicate candidateId generated: " + candidateId);
-            }
             votingSystem.registerCandidate(new Candidate(candidateId, "Candidate-" + candidateId));
         }
     }
@@ -39,12 +35,8 @@ public class VotingSystemDemo {
             throw new IllegalArgumentException("voterCount must be > 0");
         }
 
-        Set<String> voterIds = new HashSet<>();
         for (int i = 1; i <= voterCount; i++) {
             String voterId = "V" + i;
-            if (!voterIds.add(voterId)) {
-                throw new IllegalStateException("Duplicate voterId generated: " + voterId);
-            }
             votingSystem.registerVoter(new Voter(voterId, "Voter-" + voterId));
         }
     }
