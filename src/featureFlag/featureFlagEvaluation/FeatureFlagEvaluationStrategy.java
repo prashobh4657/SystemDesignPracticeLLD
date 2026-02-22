@@ -1,5 +1,7 @@
 package featureFlag.featureFlagEvaluation;
 
+import featureFlag.entities.User;
+
 public interface FeatureFlagEvaluationStrategy {
-    boolean isEnable(String userId);
+    boolean isEnable(User user);
 }

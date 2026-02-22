@@ -1,5 +1,6 @@
 package featureFlag;
 
+import featureFlag.entities.User;
 import featureFlag.featureFlagEvaluation.FeatureFlagEvaluationStrategy;
 
 import java.util.HashMap;
@@ -12,11 +13,11 @@ public class FeatureFlagManager {
         featureFlagMap.put(featureName, featureFlagEvaluationStrategy);
     }
 
-    public boolean isEnabled(String featureName, String userId) {
+    public boolean isEnabled(String featureName, User user) {
         FeatureFlagEvaluationStrategy strategy = featureFlagMap.get(featureName);
         if (strategy == null) {
             return false;
         }
-        return strategy.isEnable(userId);
+        return strategy.isEnable(user);
     }
 }

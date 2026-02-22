@@ -1,5 +1,7 @@
 package featureFlag.featureFlagEvaluation;
 
+import featureFlag.entities.User;
+
 public class PercentageRolloutRule implements FeatureFlagEvaluationStrategy {
     private final int percentage;
 
@@ -11,13 +13,17 @@ public class PercentageRolloutRule implements FeatureFlagEvaluationStrategy {
     }
 
     @Override
-    public boolean isEnable(String userId) {
+    public boolean isEnable(User user) {
         if (percentage == 0) {
             return false;
         }
         if (percentage == 100) {
             return true;
         }
+        if (user == null) {
+            return false;
+        }
+        String userId = user.getUserId();
         if (userId == null) {
             return false;
         }

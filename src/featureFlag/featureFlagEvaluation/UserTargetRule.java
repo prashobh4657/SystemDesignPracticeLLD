@@ -1,5 +1,7 @@
 package featureFlag.featureFlagEvaluation;
 
+import featureFlag.entities.User;
+
 import java.util.Collections;
 import java.util.Set;
 
@@ -15,7 +17,11 @@ public class UserTargetRule implements FeatureFlagEvaluationStrategy {
     }
 
     @Override
-    public boolean isEnable(String userId) {
+    public boolean isEnable(User user) {
+        if (user == null) {
+            return false;
+        }
+        String userId = user.getUserId();
         if (userId == null) {
             return false;
         }
