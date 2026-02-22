@@ -10,7 +10,7 @@ import java.util.*;
 
 public class FeatureFlagDemo {
     public static void run() {
-        FeatureFlagManager featureFlagManager = new FeatureFlagManager();
+        FeatureFlagManager featureFlagManager = FeatureFlagManager.getInstance();
         User user1 = new User(FeatureFlagConstants.USER_ID_1, FeatureFlagConstants.CITY_BENGALURU);
         User user2 = new User(FeatureFlagConstants.USER_ID_2, FeatureFlagConstants.CITY_MUMBAI);
         User user3 = new User(FeatureFlagConstants.USER_ID_3, FeatureFlagConstants.CITY_DELHI);

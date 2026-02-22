@@ -7,7 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FeatureFlagManager {
-    private Map<String, FeatureFlagEvaluationStrategy> featureFlagMap=new HashMap<>();
+    private static FeatureFlagManager INSTANCE = new FeatureFlagManager();
+    private Map<String, FeatureFlagEvaluationStrategy> featureFlagMap = new HashMap<>();
+
+    public static FeatureFlagManager getInstance() {
+        return INSTANCE;
+    }
 
     public void registerFeature(String featureName, FeatureFlagEvaluationStrategy featureFlagEvaluationStrategy) {
         featureFlagMap.put(featureName, featureFlagEvaluationStrategy);
